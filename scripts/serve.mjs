@@ -5,7 +5,10 @@ const root=path.resolve(import.meta.dirname,'../dist'),port=Number(process.env.P
 const types={'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.mjs':'text/javascript; charset=utf-8','.css':'text/css','.json':'application/json','.webmanifest':'application/manifest+json','.svg':'image/svg+xml','.png':'image/png','.wasm':'application/wasm','.gz':'application/gzip','.bcmap':'application/octet-stream','.ttf':'font/ttf','.pfb':'application/octet-stream','.txt':'text/plain'};
 http.createServer(async(req,res)=>{
   try{
-    const url=new URL(req.url,'http://localhost');let relative=decodeURIComponent(url.pathname).replace(/^\/+/,''),file=path.resolve(root,relative||'index.html');
+    const url=new URL(req.url,'http://localhost');
+    // Match the production host's canonical app-shell redirect during local checks.
+    if(url.pathname==='/index.html'){res.writeHead(307,{Location:'./'}).end();return;}
+    let relative=decodeURIComponent(url.pathname).replace(/^\/+/,''),file=path.resolve(root,relative||'index.html');
     if(file!==root&&!file.startsWith(root+path.sep)){res.writeHead(403).end();return;}
     if((await stat(file)).isDirectory())file=path.join(file,'index.html');const bytes=await readFile(file);
     res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream','Cache-Control':'no-cache','X-Content-Type-Options':'nosniff'});res.end(bytes);

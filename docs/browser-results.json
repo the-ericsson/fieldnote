@@ -1,21 +1,21 @@
 {
-  "date": "2026-10-22T23:29:56.827Z",
+  "date": "2026-10-22T23:42:26.548Z",
   "browser": "Headless Microsoft Edge; isolated temporary context; fake microphone",
   "results": [
     {
       "name": "cold start and complete offline cache",
       "passed": true,
-      "ms": 2393
+      "ms": 1843
     },
     {
       "name": "create notebook, metadata, and save ink",
       "passed": true,
-      "ms": 857
+      "ms": 840
     },
     {
       "name": "undo, redo, text, selection copy and resize",
       "passed": true,
-      "ms": 921
+      "ms": 753
     },
     {
       "name": "page duplicate, reorder, and templates",
@@ -25,47 +25,32 @@
     {
       "name": "PDF import, searchable source text, render, and flattened export",
       "passed": true,
-      "ms": 2126
+      "ms": 2062
     },
     {
       "name": "image import and PNG export",
       "passed": true,
-      "ms": 739
+      "ms": 696
     },
     {
       "name": "English OCR worker and bundled language data",
       "passed": true,
-      "ms": 3017
+      "ms": 2989
     },
     {
       "name": "fake microphone recording chunks and playback",
       "passed": true,
-      "ms": 4114
+      "ms": 4256
     },
     {
       "name": "editable backup round trip and malformed backup rejection before writes",
       "passed": true,
-      "ms": 635
+      "ms": 551
     },
     {
       "name": "offline cold reload retains notes, PDF, and workers",
-      "passed": true,
-      "ms": 911
-    },
-    {
-      "name": "aborted storage transaction preserves prior library",
-      "passed": true,
-      "ms": 15
-    },
-    {
-      "name": "second window cannot overwrite the library",
-      "passed": true,
-      "ms": 601
-    },
-    {
-      "name": "tablet and narrow layout, accessible control names, console",
-      "passed": true,
-      "ms": 442
+      "passed": false,
+      "error": "page.reload: net::ERR_FAILED\nCall log:\n\u001b[2m  - waiting for navigation until \"load\"\u001b[22m\n\n    at C:\\Users\\eansa\\Documents\\Codex\\2026-10-22\\us\\outputs\\Fieldnote\\tests\\browser-check.mjs:63:47\n    at async check (C:\\Users\\eansa\\Documents\\Codex\\2026-10-22\\us\\outputs\\Fieldnote\\tests\\browser-check.mjs:11:57)\n    at async file:///C:/Users/eansa/Documents/Codex/2026-10-22/us/outputs/Fieldnote/tests/browser-check.mjs:62:3"
     }
   ],
   "pageErrors": []

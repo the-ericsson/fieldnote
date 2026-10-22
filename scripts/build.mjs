@@ -21,5 +21,5 @@ await writeFile(path.join(dist,'THIRD-PARTY-NOTICES.txt'),notices);await writeFi
 async function files(dir){const out=[];for(const name of await readdir(dir)){const full=path.join(dir,name);if((await stat(full)).isDirectory())out.push(...await files(full));else out.push(path.relative(dist,full).replaceAll('\\','/'));}return out;}
 const assets=(await files(dist)).filter(f=>!['sw.js'].includes(f)).sort(),hash=createHash('sha256');let size=0;
 for(const file of assets){const bytes=await readFile(path.join(dist,file));hash.update(file).update(bytes);size+=bytes.length;}
-const version=hash.digest('hex').slice(0,16);let sw=await readFile(path.join(root,'src/sw.js'),'utf8');sw=sw.replace('__CACHE__',`fieldnote-${version}`).replace('__ASSETS__',JSON.stringify(assets.map(p=>'./'+p)));await writeFile(path.join(dist,'sw.js'),sw);
+let sw=await readFile(path.join(root,'src/sw.js'),'utf8');hash.update(sw);const version=hash.digest('hex').slice(0,16);sw=sw.replace('__CACHE__',`fieldnote-${version}`).replace('__ASSETS__',JSON.stringify(assets.map(p=>'./'+p)));await writeFile(path.join(dist,'sw.js'),sw);
 console.log(JSON.stringify({version,assets:assets.length,offlineMB:Number((size/1048576).toFixed(2)),dist}));

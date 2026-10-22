@@ -243,7 +243,14 @@ document.addEventListener('visibilitychange',()=>{if(document.hidden&&recording?
 async function offline(){
   if(!('serviceWorker'in navigator)){ $('offline-status').textContent='Offline install unavailable in this browser.';return;}
   try{
-    await navigator.serviceWorker.register('./sw.js');await navigator.serviceWorker.ready;
+    const registration=await navigator.serviceWorker.register('./sw.js');
+    if(!registration.active)await new Promise((resolve,reject)=>{
+      const worker=registration.installing||registration.waiting;
+      if(!worker){reject(new Error('Offline worker did not start.'));return;}
+      const changed=()=>{if(worker.state==='activated'){worker.removeEventListener('statechange',changed);resolve();}else if(worker.state==='redundant'){worker.removeEventListener('statechange',changed);reject(new Error('Offline asset download failed.'));}};
+      worker.addEventListener('statechange',changed);changed();
+    });
+    await navigator.serviceWorker.ready;
     const channel=new MessageChannel();channel.port1.onmessage=e=>{$('offline-status').textContent=e.data.ready?'✓ Ready offline · back up regularly':'Offline cache incomplete. Reconnect and reload.';};
     const worker=navigator.serviceWorker.controller||(await navigator.serviceWorker.ready).active;worker.postMessage({type:'STATUS'},[channel.port2]);
   }catch(e){$('offline-status').textContent='Offline setup failed. Reconnect and reload.';console.error(e);}
