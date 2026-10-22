@@ -11,7 +11,8 @@ self.addEventListener('install',event=>event.waitUntil((async()=>{
     if(['js','mjs'].includes(ext)&&!/javascript/.test(type))throw new Error('Invalid offline script.');
     if(ext!=='html'&&/text\/html/.test(type))throw new Error('Offline asset returned a sign-in page.');
     if(ext==='html'&&!(await response.clone().text()).includes('id="paper"'))throw new Error('Not the app shell.');
-    await cache.put(url,response);
+    // Navigation cannot reuse a cached redirected response; preserve its validated body instead.
+    await cache.put(url,response.redirected?new Response(response.body,{status:response.status,statusText:response.statusText,headers:response.headers}):response);
   }));
 })()));
 self.addEventListener('activate',event=>event.waitUntil((async()=>{

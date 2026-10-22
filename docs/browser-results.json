@@ -1,56 +1,71 @@
 {
-  "date": "2026-10-22T23:42:26.548Z",
+  "date": "2026-10-22T23:43:42.505Z",
   "browser": "Headless Microsoft Edge; isolated temporary context; fake microphone",
   "results": [
     {
       "name": "cold start and complete offline cache",
       "passed": true,
-      "ms": 1843
+      "ms": 1948
     },
     {
       "name": "create notebook, metadata, and save ink",
       "passed": true,
-      "ms": 840
+      "ms": 940
     },
     {
       "name": "undo, redo, text, selection copy and resize",
       "passed": true,
-      "ms": 753
+      "ms": 838
     },
     {
       "name": "page duplicate, reorder, and templates",
       "passed": true,
-      "ms": 216
+      "ms": 234
     },
     {
       "name": "PDF import, searchable source text, render, and flattened export",
       "passed": true,
-      "ms": 2062
+      "ms": 2174
     },
     {
       "name": "image import and PNG export",
       "passed": true,
-      "ms": 696
+      "ms": 727
     },
     {
       "name": "English OCR worker and bundled language data",
       "passed": true,
-      "ms": 2989
+      "ms": 3042
     },
     {
       "name": "fake microphone recording chunks and playback",
       "passed": true,
-      "ms": 4256
+      "ms": 4100
     },
     {
       "name": "editable backup round trip and malformed backup rejection before writes",
       "passed": true,
-      "ms": 551
+      "ms": 562
     },
     {
       "name": "offline cold reload retains notes, PDF, and workers",
-      "passed": false,
-      "error": "page.reload: net::ERR_FAILED\nCall log:\n\u001b[2m  - waiting for navigation until \"load\"\u001b[22m\n\n    at C:\\Users\\eansa\\Documents\\Codex\\2026-10-22\\us\\outputs\\Fieldnote\\tests\\browser-check.mjs:63:47\n    at async check (C:\\Users\\eansa\\Documents\\Codex\\2026-10-22\\us\\outputs\\Fieldnote\\tests\\browser-check.mjs:11:57)\n    at async file:///C:/Users/eansa/Documents/Codex/2026-10-22/us/outputs/Fieldnote/tests/browser-check.mjs:62:3"
+      "passed": true,
+      "ms": 635
+    },
+    {
+      "name": "aborted storage transaction preserves prior library",
+      "passed": true,
+      "ms": 9
+    },
+    {
+      "name": "second window cannot overwrite the library",
+      "passed": true,
+      "ms": 567
+    },
+    {
+      "name": "tablet and narrow layout, accessible control names, console",
+      "passed": true,
+      "ms": 387
     }
   ],
   "pageErrors": []
