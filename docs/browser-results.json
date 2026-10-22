@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-22T23:29:56.827Z",
+  "browser": "Headless Microsoft Edge; isolated temporary context; fake microphone",
+  "results": [
+    {
+      "name": "cold start and complete offline cache",
+      "passed": true,
+      "ms": 2393
+    },
+    {
+      "name": "create notebook, metadata, and save ink",
+      "passed": true,
+      "ms": 857
+    },
+    {
+      "name": "undo, redo, text, selection copy and resize",
+      "passed": true,
+      "ms": 921
+    },
+    {
+      "name": "page duplicate, reorder, and templates",
+      "passed": true,
+      "ms": 216
+    },
+    {
+      "name": "PDF import, searchable source text, render, and flattened export",
+      "passed": true,
+      "ms": 2126
+    },
+    {
+      "name": "image import and PNG export",
+      "passed": true,
+      "ms": 739
+    },
+    {
+      "name": "English OCR worker and bundled language data",
+      "passed": true,
+      "ms": 3017
+    },
+    {
+      "name": "fake microphone recording chunks and playback",
+      "passed": true,
+      "ms": 4114
+    },
+    {
+      "name": "editable backup round trip and malformed backup rejection before writes",
+      "passed": true,
+      "ms": 635
+    },
+    {
+      "name": "offline cold reload retains notes, PDF, and workers",
+      "passed": true,
+      "ms": 911
+    },
+    {
+      "name": "aborted storage transaction preserves prior library",
+      "passed": true,
+      "ms": 15
+    },
+    {
+      "name": "second window cannot overwrite the library",
+      "passed": true,
+      "ms": 601
+    },
+    {
+      "name": "tablet and narrow layout, accessible control names, console",
+      "passed": true,
+      "ms": 442
+    }
+  ],
+  "pageErrors": []
+}

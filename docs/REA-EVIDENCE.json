@@ -1,0 +1,50 @@
+{
+  "evidence_id": "ev_a036dafa731666337237aab17dd9b6c93570eac1e5fba8ee3a30acaf6333894a",
+  "authority": "controlled-replay",
+  "confidence": "observed",
+  "operation": "capture_browser_scenario",
+  "subject": null,
+  "limitations": [
+    "Artifact identity is unavailable for this observation.",
+    "Event sequence records provider receipt order; simultaneous browser causality is not inferred.",
+    "Network content is retained only when selected; Playwright response-body bytes are API results and are not guaranteed to match wire bytes.",
+    "Request bytes are limited to what Playwright exposes; not_exposed does not establish body absence or multipart file coverage.",
+    "Network content reads settle within 5 seconds each and the observer does not request bodies from unfinished responses.",
+    "Playwright scenario events do not expose request initiator stacks; receipt order does not prove causality.",
+    "Storage values are hashed only after declared-secret redaction.",
+    "Browser host platform and architecture were not observed."
+  ],
+  "browser": {
+    "mode": "launch",
+    "process_ownership": "provider-owned",
+    "cleanup": "terminated-owned-process",
+    "product": "Chromium",
+    "version": "155.0.4283.45"
+  },
+  "scope": "Public Notability getting-started documentation only; no product binary, protected app session, or native drawing behavior was inspected.",
+  "steps": [
+    {
+      "step_id": "scenario_start",
+      "action": "goto_start",
+      "status": "completed",
+      "after_url": {
+        "url": "https://support.gingerlabs.com/en-us/articles/16300108-getting-started-with-notability",
+        "origin": "https://support.gingerlabs.com",
+        "query_parameter_names": [],
+        "redacted": false
+      }
+    },
+    {
+      "step_id": "settle",
+      "action": "wait_for_timeout",
+      "status": "completed",
+      "after_url": {
+        "url": "https://support.gingerlabs.com/en-us/articles/16300108-getting-started-with-notability",
+        "origin": "https://support.gingerlabs.com",
+        "query_parameter_names": [],
+        "redacted": false
+      },
+      "dom_digest": "eb5a4b03032e789fe7e27427c1e873de26a7c77d4860cbb118bbbcfbbe699498"
+    }
+  ]
+}

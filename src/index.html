@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f3ed"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><title>Fieldnote — your space to think</title><link rel="manifest" href="./manifest.webmanifest"><link rel="apple-touch-icon" href="./icon-192.png"><link rel="icon" href="./icon.svg"><link rel="stylesheet" href="./style.css"></head>
+<body>
+<aside class="sidebar" aria-label="Library navigation">
+  <a class="brand" href="#" id="home"><span class="brandmark">f.</span>fieldnote<span class="branddot">●</span></a>
+  <div class="sidebar-kicker">YOUR WORKSPACE</div>
+  <button class="nav active" id="all-notes"><span>▤</span> All notebooks <small id="book-count">0</small></button>
+  <div class="folder-heading"><span>FOLDERS</span><button id="new-folder" aria-label="New folder">＋</button></div>
+  <div id="folders"></div>
+  <div class="sidebar-bottom"><div class="local-badge"><span>●</span> Stored on this device</div><button id="backup">↗ &nbsp; Back up library</button><button id="restore">↙ &nbsp; Restore backup</button><button id="help">? &nbsp; Install & help</button><div id="offline-status" role="status">Preparing offline access…</div></div>
+</aside>
+<main>
+<section id="library">
+  <header class="library-top"><span class="breadcrumb">My workspace <span>/</span> <strong id="location">All notebooks</strong></span><button class="avatar" aria-label="About your local workspace" id="about">F</button></header>
+  <div class="library-heading"><div><p class="eyebrow">A LITTLE ROOM FOR BIG IDEAS</p><h1>Your notebooks<span>.</span></h1><p class="subtitle">Make a mark. Follow a thought. Keep it all here.</p></div><button class="primary" id="new-book">＋ New notebook</button></div>
+  <div class="library-controls"><label class="search">⌕ <input id="search" type="search" placeholder="Search titles, tags, and note text" aria-label="Search notebooks"></label><select id="sort" aria-label="Sort notebooks"><option value="updated">Last edited</option><option value="title">Name A–Z</option><option value="created">Date created</option></select><button id="import-pdf">↥ Import PDF</button></div>
+  <div class="section-heading"><h2 id="collection-name">All notebooks</h2><span id="result-count"></span></div>
+  <div id="notebooks" class="notebook-grid"></div>
+  <div class="library-foot"><span>Private by design. Ready when inspiration is.</span><span>NO SUBSCRIPTIONS. JUST YOUR NOTES.</span></div>
+</section>
+<section id="editor" hidden>
+  <header class="editor-header"><button id="back">‹ Library</button><div class="editor-title"><h1 id="book-title"></h1><span id="save-status" role="status">Saved locally</span></div><button id="details">Details</button><button id="export">Export</button></header>
+  <div class="tools" role="toolbar" aria-label="Drawing tools">
+    <div class="tool-group" id="tool-buttons"><button data-tool="pen" class="chosen" aria-pressed="true" title="Pen (P)">✎<span>Pen</span></button><button data-tool="highlight" aria-pressed="false">▰<span>Highlight</span></button><button data-tool="erase" aria-pressed="false">▱<span>Eraser</span></button><button data-tool="lasso" aria-pressed="false">◌<span>Lasso</span></button><button data-tool="text" aria-pressed="false">T<span>Text</span></button><button data-tool="shape" aria-pressed="false">▢<span>Shape</span></button><button id="add-image">▧<span>Image</span></button></div>
+    <div class="tool-group"><input id="color" type="color" value="#253c35" aria-label="Ink color"><label class="width-label">Size <input id="width" type="range" min="1" max="24" value="3" aria-label="Stroke width"></label><select id="shape" aria-label="Shape type"><option value="rect">Rectangle</option><option value="ellipse">Ellipse</option><option value="line">Line ↘</option></select></div>
+    <div class="tool-group"><button id="undo" title="Undo (⌘Z)">↶<span>Undo</span></button><button id="redo" title="Redo (⇧⌘Z)">↷<span>Redo</span></button><label class="finger"><input id="finger" type="checkbox" checked> Finger ink</label></div>
+  </div>
+  <div class="editor-options"><div><label>Paper <select id="template" aria-label="Paper template"><option value="ruled">Ruled</option><option value="blank">Blank</option><option value="grid">Grid</option><option value="dots">Dots</option></select></label><label>Zoom <select id="zoom" aria-label="Page zoom"><option value="fit">Fit page</option><option value="1">100%</option><option value="1.5">150%</option><option value="2">200%</option></select></label></div><div><button id="recognize">Scan text</button><button id="record">● Record audio</button><button id="audio-list">Recordings <span id="audio-count">0</span></button></div></div>
+  <div id="selection-controls" hidden><span id="selected-count"></span><button id="copy">Copy</button><button id="paste">Paste</button><button id="shrink">Smaller</button><button id="grow">Larger</button><button id="edit-text">Edit text</button><button id="delete-selection">Delete selection</button></div>
+  <div class="editor-body"><nav class="page-sidebar" aria-label="Notebook pages"><div id="pages"></div><button id="add-page">＋ Add page</button><button id="append-pdf">↥ Add PDF</button></nav><div id="paper-scroll" class="paper-scroll"><div class="paper-wrap"><canvas id="paper" aria-label="Drawing page. Use Text to add accessible typed notes; use Lasso or the Objects button to select content." tabindex="0"></canvas></div></div></div>
+  <footer class="editor-foot"><span id="page-status"></span><button id="objects">Objects</button><span id="input-status">Finger ink is on · use two fingers to scroll the workspace</span></footer>
+  <div id="audio-bar" hidden><button id="close-audio" aria-label="Close audio player">×</button><span id="audio-caption"></span><audio id="player" controls></audio><label><input id="replay" type="checkbox"> Replay ink</label></div>
+</section>
+</main>
+<dialog id="dialog"><form method="dialog" id="dialog-form"><div class="dialog-heading"><h2 id="dialog-title"></h2><button value="cancel" aria-label="Close dialog" formnovalidate>×</button></div><div id="dialog-body"></div><div class="dialog-actions"><button value="cancel" formnovalidate>Cancel</button><button class="primary" value="ok" id="dialog-ok">Save</button></div></form></dialog>
+<div id="toast" role="status" aria-live="polite" hidden></div>
+<input type="file" id="file-pdf" accept="application/pdf,.pdf" hidden><input type="file" id="file-image" accept="image/png,image/jpeg,image/webp" hidden><input type="file" id="file-backup" accept=".zip,application/zip" hidden>
+<script src="./vendor/pdf-lib.min.js"></script><script src="./vendor/tesseract.min.js"></script><script type="module" src="./app.mjs"></script>
+</body></html>
