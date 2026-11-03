@@ -4,13 +4,13 @@
 
 Deployment succeeded on October 22, 2026. The Site is private to its owner. Open the link in Safari on your iPad and sign in with the owning ChatGPT account, then choose Share → Add to Home Screen. Open the installed app while online and wait for Ready offline before testing Airplane Mode.
 
-The publication service confirmed success. The hosted link was opened in the browser and its sign-in gate was verified; authenticated production runtime behavior was not tested because that browser has no signed-in account. All app workflow tests were performed against the same static build locally in an isolated browser context.
+The publication service confirmed success. The private sign-in gate and the published editor were both opened in the browser. The corrected production deployment completed its asset cache and displayed **Ready offline**. Full workflow tests ran locally in an isolated browser context, including cold offline navigation with the production host's canonical `/index.html` redirect. Physical iPad installation remains unverified.
 
-- Source commit: `ee8db69ffd985c63d6e9e534a576a1ecf85fe51b`
-- Static cache version: `de14e27224530b51`
+- Source commit: `e89f7af7eaef362bb279f57ccaf17a906df39cc3`
+- Static cache version: `1d32e03623c2ffa5`
 - Site project: `appgprj_6ada951cffa48191b97ea6f0ddbc7931`
-- Published deployment: `appgdep_6ada9d1e637881919a988c645a679549`
-- Saved version: `appgprj_6ada951cffa48191b97ea6f0ddbc7931~appgver_5cd0d4152c3481918cf95dd4b4e8ff85`
+- Published deployment: `appgdep_6adaa0025ca081918f992978a08494f3`
+- Saved version: `appgprj_6ada951cffa48191b97ea6f0ddbc7931~appgver_ed3b2b4b4ae8819180ac8be2671e46ec`
 
 This deployment note was added to the downloadable source after publication; it does not change the deployed application. The included static ZIP can also be hosted independently. See README.md for GitHub Pages publication instructions using a free public repository.
 

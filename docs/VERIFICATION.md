@@ -17,6 +17,8 @@ Manual in-app-browser checks also created a notebook, drew a stroke, and confirm
 
 Production inspection found that the host redirects `/index.html` to `/`. Offline installation now accepts same-origin redirects only after validating the actual app shell, rejects HTML in asset responses, and reports failed worker installation. The local preview reproduces the canonical redirect, so the offline integration checks cover this regression.
 
+The corrected private production deployment was opened in Codex, its notebook editor rendered, and its status reached **Ready offline** after all assets cached. The production screenshot is supplied separately as `Fieldnote-preview.png`. This does not replace the physical Safari/Home Screen checks below.
+
 ## Known unverified behavior
 
 - Physical A16 iPad, exact installed iPadOS build, and the user's third-party pencil.
